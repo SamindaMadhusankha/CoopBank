@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 120">
+  <rect width="260" height="120" rx="16" fill="#111111" />
+  <rect x="12" y="12" width="236" height="96" rx="12" fill="#1a1a1a" stroke="#c0c0c0" stroke-width="2" />
+  <ellipse cx="80" cy="60" rx="55" ry="34" fill="#f9ed32" stroke="#111111" stroke-width="6" />
+  <text x="80" y="70" fill="#111111" font-family="Sora, 'Segoe UI', sans-serif" font-size="40" font-weight="700" text-anchor="middle">VIP</text>
+  <text x="96" y="30" fill="#ffffff" font-family="Sora, 'Segoe UI', sans-serif" font-size="16">CEYLINCO</text>
+  <text x="150" y="98" fill="#f9ed32" font-family="Sora, 'Segoe UI', sans-serif" font-size="16">ON THE SPOT</text>
+  <text x="175" y="60" fill="#ffffff" font-family="Sora, 'Segoe UI', sans-serif" font-size="18" font-weight="600">Market</text>
+  <text x="185" y="78" fill="#777" font-family="Sora, 'Segoe UI', sans-serif" font-size="18" font-weight="600">Leader</text>
+</svg>
