@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Translation System - Manual + Google Translate</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: -20px -20px 20px -20px;
+            border-radius: 10px 10px 0 0;
+        }
+        .translation-mode {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        .translation-mode h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .switch-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #667eea;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .demo-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .badge.manual {
+            background: #4caf50;
+            color: white;
+        }
+        .badge.auto {
+            background: #ff9800;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <div style="max-width: 1000px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        
+        <div class="demo-header">
+            <h1>🌐 Hybrid Translation System</h1>
+            <p>Manual Translations + Google Auto-Translate</p>
+        </div>
+
+        <div class="translation-mode">
+            <h3>Choose Translation Method:</h3>
+            <div class="switch-container">
+                <label class="switch">
+                    <input type="checkbox" id="translationMode">
+                    <span class="slider"></span>
+                </label>
+                <span id="modeLabel">
+                    <strong>Manual Translation</strong> (Pre-defined, Professional)
+                </span>
+            </div>
+        </div>
+
+        <div class="language-toggle" aria-label="Language toggle" style="display: flex; gap: 10px; margin-bottom: 30px;">
+            <button type="button" class="active" data-lang="en" style="padding: 10px 20px; border: 2px solid #667eea; background: #667eea; color: white; border-radius: 8px; cursor: pointer;">
+                English
+            </button>
+            <button type="button" data-lang="si" style="padding: 10px 20px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 8px; cursor: pointer;">
+                සිංහල (Sinhala)
+            </button>
+            <button type="button" data-lang="ta" style="padding: 10px 20px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 8px; cursor: pointer;">
+                தமிழ் (Tamil)
+            </button>
+        </div>
+
+        <!-- Content with Manual Translation -->
+        <div class="demo-box">
+            <h2>
+                <span data-translate="hero.title">Future-forward cooperative banking for every Sri Lankan household.</span>
+                <span class="badge manual">Manual</span>
+            </h2>
+            <p data-translate="hero.description">
+                Experience digital-first savings, ethical lending, and personalized advisory built on 60 years of cooperative heritage. Access Sinhala, English, or Tamil support within seconds.
+            </p>
+        </div>
+
+        <!-- Content with Auto-Translation -->
+        <div class="demo-box">
+            <h2>
+                Our Services & Benefits
+                <span class="badge auto">Auto</span>
+            </h2>
+            <p>
+                We offer comprehensive financial services including savings accounts, home loans, business financing, and investment opportunities. Our cooperative model ensures that profits are shared among members, creating a truly community-focused banking experience.
+            </p>
+            <p>
+                With over 80 branches across Sri Lanka and a network of mobile banking agents, we bring banking services to your doorstep. Our digital platform allows you to manage your accounts 24/7 from anywhere in the world.
+            </p>
+        </div>
+
+        <!-- Mixed Content -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px;">
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
+                <strong data-translate="hero.stat1.value" style="display: block; font-size: 32px; color: #667eea;">18%</strong>
+                <small data-translate="hero.stat1.label">Dividend rate 2025</small>
+                <span class="badge manual" style="margin-top: 10px;">Manual</span>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
+                <strong style="display: block; font-size: 32px; color: #667eea;">1.2M+</strong>
+                <small>Active Members</small>
+                <span class="badge auto" style="margin-top: 10px;">Auto</span>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
+                <strong data-translate="hero.stat3.value" style="display: block; font-size: 32px; color: #667eea;">24/7</strong>
+                <small data-translate="hero.stat3.label">WhatsApp agent</small>
+                <span class="badge manual" style="margin-top: 10px;">Manual</span>
+            </div>
+        </div>
+
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin-top: 30px; border-radius: 8px;">
+            <h3 style="color: #856404; margin-bottom: 10px;">💡 How This Works</h3>
+            <ul style="color: #856404; line-height: 1.8;">
+                <li><strong>Manual Mode:</strong> Uses pre-defined translations from <code>translations.js</code> - Fast, accurate, SEO-friendly</li>
+                <li><strong>Auto Mode:</strong> Uses Google Translate API - Automatic, covers everything, good for testing</li>
+                <li><strong>Mixed Content:</strong> Manual translations (with badge) are professional. Auto-translated content adapts automatically.</li>
+                <li><strong>Best Practice:</strong> Use manual for important content (navigation, hero, CTAs) and auto for detailed descriptions.</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px;">
+            <h3>📚 Documentation</h3>
+            <p>Check these files for more information:</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap;">
+                <a href="TRANSLATION_GUIDE.md" style="padding: 8px 16px; background: #667eea; color: white; text-decoration: none; border-radius: 6px;">Translation Guide</a>
+                <a href="GOOGLE_TRANSLATE_GUIDE.md" style="padding: 8px 16px; background: #667eea; color: white; text-decoration: none; border-radius: 6px;">Google Translate Guide</a>
+                <a href="QUICK_START.md" style="padding: 8px 16px; background: #667eea; color: white; text-decoration: none; border-radius: 6px;">Quick Start</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/translations.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        // Track which mode is active
+        let isAutoMode = false;
+
+        // Toggle between manual and auto translation
+        document.getElementById('translationMode').addEventListener('change', function() {
+            isAutoMode = this.checked;
+            const label = document.getElementById('modeLabel');
+            
+            if (isAutoMode) {
+                label.innerHTML = '<strong>Auto Translation</strong> (Google Translate, Automatic)';
+                // Enable Google Translate functionality
+                document.getElementById('google_translate_element').style.display = 'block';
+            } else {
+                label.innerHTML = '<strong>Manual Translation</strong> (Pre-defined, Professional)';
+                // Use manual translations
+                document.getElementById('google_translate_element').style.display = 'none';
+            }
+        });
+
+        // Manual translation functionality
+        const LANG_STORAGE_KEY = "coop-language";
+        let currentLanguage = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+
+        const translatePage = (lang) => {
+            if (typeof translations === 'undefined' || isAutoMode) return;
+            
+            const trans = translations;
+            if (!trans[lang]) return;
+
+            document.querySelectorAll("[data-translate]").forEach((element) => {
+                const key = element.getAttribute("data-translate");
+                if (trans[lang][key]) {
+                    if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                        element.placeholder = trans[lang][key];
+                    } else {
+                        element.textContent = trans[lang][key];
+                    }
+                }
+            });
+
+            localStorage.setItem(LANG_STORAGE_KEY, lang);
+            document.documentElement.lang = lang;
+            currentLanguage = lang;
+        };
+
+        const langButtons = document.querySelectorAll(".language-toggle button");
+        langButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const selectedLang = btn.dataset.lang || "en";
+                
+                langButtons.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+                
+                if (!isAutoMode) {
+                    translatePage(selectedLang);
+                } else {
+                    // Trigger Google Translate
+                    triggerGoogleTranslate(selectedLang);
+                }
+            });
+        });
+
+        // Initialize with saved language
+        const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+        langButtons.forEach((btn) => {
+            if (btn.dataset.lang === savedLang) {
+                btn.classList.add("active");
+            } else {
+                btn.classList.remove("active");
+            }
+        });
+        translatePage(savedLang);
+    </script>
+    <script src="assets/js/google-translate.js"></script>
+</body>
+</html>

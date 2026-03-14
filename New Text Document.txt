@@ -1,0 +1,18 @@
+used accordion style branches,and search feature,no unnecessary staff images
+modern faq with some new questions 
+added whatsapp button
+image in small sized to load quickly 
+
+dark mode and light mode
+
+Start Apache/PHP in XAMPP, then open http://localhost/coop/member-login.php.
+Demo logins: 
+admin01 / Admin@2025 · Platform administrator
+savindi / Saver#01 · Women entrepreneur pod
+nuwan / Builder#02 · Agri modernization
+priya / Investor#03 · Youth skills plan
+kasun / Farmer#04 · Livestock revival
+
+
+place this folder inside xampp/htdocs/
+start apache server
