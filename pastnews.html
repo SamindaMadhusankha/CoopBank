@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News | Capital Cooperative Bank</title>
+    <meta name="description" content="See the latest announcements, community programs, and milestones from Capital Cooperative Bank." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script src="assets/js/translations.js"></script>
+    <script defer src="assets/js/main.js"></script>
+</head>
+<style>
+        :root {
+            --coop-blue:rgb(226, 218, 241);
+            --coop-yellow: rgb(0, 0, 0);
+            --soft-blue: #eef4ff;
+            --pill-red: #ff4d4d;
+            --text-dark: #1a2b48;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #fdfdff 0%, #eef2f7 100%);
+            color: var(--text-dark);
+        }
+
+        /* --- IMAGE 1: THE CURVED HEADER SECTION --- */
+        .hero-banner {
+            position: relative;
+            background-color: var(--coop-blue);
+            height: 320px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* The wave effect on the left */
+        .hero-banner::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+            z-index: 1;
+        }
+
+        /* Overlay curve for the transition */
+        .curve-overlay {
+            position: absolute;
+            left: 38%;
+            height: 100%;
+            width: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            clip-path: ellipse(50% 100% at 0% 50%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            margin-left: 50%;
+            z-index: 3;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--coop-yellow);
+            margin: 0;
+        }
+
+        /* Top Left News Pill from Image 1 */
+        .news-pill {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: white;
+            color: var(--text-dark);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        /* --- IMAGE 2: IMPACT & TEXT SECTION --- */
+        .impact-container {
+            max-width: 1100px;
+            margin: 80px auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            padding: 0 20px;
+            align-items: center;
+        }
+
+        .since-pill {
+            background: var(--pill-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .main-heading {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        /* Snapshot Card from Image 2 */
+        .snapshot-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .snapshot-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .snapshot-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .snapshot-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.1rem;
+        }
+
+        .snapshot-list li:last-child { border: none; }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-bar a:hover { color: rgb(221, 168, 235); 
+        }
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+    </style>
+<body data-page="news" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html" data-translate="nav.home">Home</a>
+                <a href="about.html" data-translate="nav.about">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text" data-translate="nav.services">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html" data-translate="nav.deposit">Deposits</a>
+                        <a href="loans.html" data-translate="nav.loans">Loans</a>
+                        <a href="services.html" data-translate="nav.services">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html" data-translate="nav.membership">Membership</a>
+                <a href="branches.html" data-translate="nav.branches">Branches</a>
+                <a href="faq.html" data-translate="nav.faq">FAQ</a>
+                <a href="news.html" data-translate="nav.news">News</a>
+                <a href="contact.html" data-translate="nav.contact">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary" href="member-login.html">Member Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="news-pill" data-translate="pastnews.pill">News</div>
+    <header class="hero-banner">
+        <div class="curve-overlay"></div>
+        <div class="hero-content">
+            <h1 data-translate="pastnews.banner.title">Past News</h1>
+            <p data-translate="pastnews.banner.description">Get to know our past news & events.</p>
+        </div>
+    </header>
+        <section id="news-list" class="white-section">
+            <div class="section-heading">
+                <p class="pill" data-translate="pastnews.list.pill">Past News…</p>
+                <h2 data-translate="pastnews.list.title">Past announcements.</h2>
+                <p data-translate="pastnews.list.description">Content adapted from the official cooperative news feed to keep members informed with a single glance.</p>
+            </div>
+            <div class="news-grid">
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">02 Feb 2021</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>Dematagoda Branch Re-located</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/20news.jpg" alt="Five year strategic plan book cover" loading="lazy" />
+                    </figure>
+                    <p>Dematagoda Branch Re-located on 2021-12-02. Kolonnawa Road, Dematagoda, Colombo 09.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">27 Nov 2021</span>
+                        <span class="news-tag">Community</span>
+                    </div>
+                    <h3>General Meeting – 2021</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/21news.jpg" alt="Cash collectors receiving recognition" loading="lazy" />
+                    </figure>
+                    <p>The annual general meeting was held on 2021-11-27 with the participation of a limited number of members as per the laws prevailing in the country. Office bearers elected for the next three years</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">11 Nov 2021</span>
+                        <span class="news-tag">Pharmacy</span>
+                    </div>
+                    <h3>Opening of Co-op Pharmacy at Salmal Uyana</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/22news.jpg" alt="Audit meeting in progress" loading="lazy" />
+                    </figure>
+                    <p>Co-op Pharmacy at Salmal Uyana branch was opened on 2021-11-11.</p>
+                    
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">29 Oct 2021</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>Seethawakapura Branch Re-located</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/23news.jpg" alt="Youth Saver account launch" loading="lazy" />
+                    </figure>
+                    <p>Seethawakapura Branch Re-located on 2021-10-29.</p>
+                    
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">12 Aug 2021</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>Kadawatha Branch Re-located</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/24news.jpg" alt="22nd anniversary celebrations" loading="lazy" />
+                    </figure>
+                    <p>Kadawatha Branch Re-located on 2021-08-12.</p>
+                    
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">11 Aug 2021</span>
+                        <span class="news-tag">Social Service</span>
+                    </div>
+                    <h3>COVID-19 Social Service (2021-08-11)</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/25news.jpg" alt="International Women&#39;s Day celebrations" loading="lazy" />
+                    </figure>
+                    <p>Leaflets on the prevention of COVID-19 were printed and handed over to Public Health Office of Gothatuwa on 2021-08-11 as a social service from the Society.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">16 Jul 2020</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>Opening of the “Samupakara” Agency Post Office</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/27news.jpg" alt="International Women&#39;s Day celebrations" loading="lazy" />
+                    </figure>
+                    <p>The Business Development Cooperative Society opened an Agency Post Office opened on 16th July 2020 at the Head Office premises diversifying the services offered by the Business Development Cooperative Society to the public.</p>
+                    
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">15 Jan 2020</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>Opening of Salmal Uyana Branch and Filling Station</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/28news.jpg" alt="International Women&#39;s Day celebrations" loading="lazy" />
+                    </figure>
+                    <p>Having served as the financial service provider for more than 50,000 members, whose only assets ware their skills and determination, through 20 branches, the Business Development Cooperative Society has taken a new turning point in diversifying the services provided by opening the Salmal Uyana Filling Station on 2020-02-20.</p>
+                   
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">02 Feb 2020</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>Salmal Uyana Branch and Filling Station</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/29news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p>Our next branch and a Filling Station will soon be opened at Salmal Uyana.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">06 Sep 2019</span>
+                        <span class="news-tag">Appointment</span>
+                    </div>
+                    <h3>Permanent Appointments to the Staff</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/30news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p>Permanent appointments were ceremoniously offered to the staff of the Business Development Cooperative Society on 2019.09.06 with the approval of the Cooperative Staff Commission of the Western Province at the head office of the society with the participation of the Secretary to the Commission Mr. Sumith Suraweera and Assistant Secretary to the Cooperative Ministry Miss Dinesha Kumari and Hon. Chairman, Secretary General and the Board of Directors of Cooperative Society.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">14 Feb 2019</span>
+                        <span class="news-tag">Branches</span>
+                    </div>
+                    <h3>A New Branch at Dematagoda…</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/31news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p>The Business Development Cooperative Society will soon extend its service area with the opening of a new branch in Dematagoda.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">07 Feb 2019</span>
+                        <span class="news-tag">Anniversary</span>
+                    </div>
+                    <h3>17th Anniversary on 2019-02-07 …</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/32news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p>A “Bodhi Pooja” was held on 2019-02-07 at Henawatta Sri Viwekarama Purana Vihara in commemoration of the 17th Anniversary of the Business Development Cooperative Society.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">08 Feb 2019</span>
+                        <span class="news-tag">Business</span>
+                    </div>
+                    <h3>Highest Rates for Pawning of Gold for Your Urgent Needs</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/33news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p> </p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">01 Jan 2019</span>
+                        <span class="news-tag">Mobile Services</span>
+                    </div>
+                    <h3>Mobile Services of Business Development Cooperative Society Launched on 1st of January 2019</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/34news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p>Mobile services of Business Development Cooperative Society was launched this morning to assist the clientele in their banking activities. This Mobile Unit will facilitate all the banking activities and payment if electricity, water, telephone bills & insurance payments at client's doorstep.</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">28 Apr 2018</span>
+                        <span class="news-tag">Social</span>
+                    </div>
+                    <h3>Blood Donation Campaign on 2018-05-06…</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/35news.jpg" alt="Pasyala branch relocation" loading="lazy" />
+                    </figure>
+                    <p>Blood Donation Campaign organized by the Business Development Cooperative Society will held on 2018-05-06 at the head office premises. All blood donors are warmly invited…</p>
+                </article>
+
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">21 Oct 2017</span>
+                        <span class="news-tag">Anniversary</span>
+                    </div>
+                    <h3>Fifth Anniversary and Election of Board of Directors</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/36news.jpg" alt="International Women&#39;s Day celebrations" loading="lazy" />
+                    </figure>
+                    <p>Fifth anniversary of the Business Development Cooperative Society was held on 17th October 2017. Lion Piyal Ramawickrama as the Hon Chairman, Mr. Gamini Jayaweera as the Hon Secretary General, Lion Shirley Ariyarathna as the Vice President, and Mr. Sarath Jayasinghe, Mr. Chamila Vagisa, Mr. Roshan Punchihewa, & Mrs. Sriyani Nawagamuwa as directors were elected uncontested for the Board of Directors for 2017 – 2020.</p>
+                    
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Capital Cooperative Bank</h4>
+                <p>Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 12px; margin-top: 8px;">
+                   <a href="https://www.facebook.com/share/1AMGWg2WFe/?mibextid=wwXIfr" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Facebook" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@bdcb514?si=ei93A_KSEimSxy-q" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="YouTube" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Instagram" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                    </a>
+                    <a href="https://lk.linkedin.com/" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="LinkedIn" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Twitter" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>© 2025 Capital Cooperative Bank.</small>
+            <small>Impact through cooperation.</small>
+        </div>
+    </footer>
+</body>
+</html>

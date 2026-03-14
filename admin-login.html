@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | Capital Cooperative Bank</title>
+    <meta name="description" content="Administrator login for Capital Cooperative Bank management console." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script defer src="assets/js/main.js"></script>
+    <style>
+        .admin-login-card {
+            max-width: 460px;
+            margin: 0 auto;
+        }
+        .admin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .admin-badge::before {
+            content: "🔒";
+        }
+    </style>
+</head>
+<body data-page="admin-login" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html">Deposits</a>
+                        <a href="loans.html">Loans</a>
+                        <a href="services.html">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html">Membership</a>
+                <a href="branches.html">Branches</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary" href="member-login.html">Member Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="admin-secure-login">
+            <div class="hero-inner">
+                <div>
+                    <div class="pill">Administrator access</div>
+                    <h1>Cooperative management console.</h1>
+                    <p>Authorized personnel only. Use your admin credentials to access the management dashboard.</p>
+                    <ul class="hero-bullets">
+                        <li>Manage member accounts and approvals.</li>
+                        <li>Monitor cooperative health and user statuses.</li>
+                        <li>Create users, update roles, and export audit data.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Admin support</h3>
+                    <p>For admin account issues, contact:</p>
+                    <ul>
+                        <li>IT helpdesk: +94 11 456 7788 (option 1)</li>
+                        <li>admin-support@coopbank.lk</li>
+                        <li>Head Office, 2nd floor — IT division</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section portal-auth">
+            <div class="grid grid-2">
+                <article class="card admin-login-card">
+                    <span class="admin-badge">Administrator login</span>
+                    <h2>Admin sign in</h2>
+                    <p>Enter your administrator credentials to access the management console.</p>
+                    <div id="auth-message" class="alert" role="status" style="display:none;"></div>
+                    <div id="auth-error" class="alert alert-error" role="alert" style="display:none;"></div>
+
+                    <form id="admin-login-form" class="auth-form" novalidate>
+                        <label for="username">Admin Username</label>
+                        <input type="text" id="username" name="username" placeholder="e.g. admin01" autocomplete="username" required />
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter admin password" autocomplete="current-password" required />
+
+                        <button class="btn btn-primary btn-auth-submit" type="submit">Sign in to Admin Panel</button>
+                    </form>
+
+                    <p style="margin-top:1.5rem; text-align:center; font-size:0.85rem; color:var(--text-muted, #6b7280);">
+                        Are you a member? <a href="member-login.html" class="link">Go to Member Login</a>
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Capital Cooperative Bank</h4>
+                <p>Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Centre</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="https://wa.me/94770001122" rel="noopener" target="_blank">WhatsApp 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2025 Capital Cooperative Bank. All rights reserved.</small>
+            <small>Optimized for performance, accessibility, and SEO.</small>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        const form = document.getElementById('admin-login-form');
+        const authError = document.getElementById('auth-error');
+        const authMessage = document.getElementById('auth-message');
+
+        // Check if already logged in as admin
+        fetch('/api/auth/me').then(r => {
+            if (r.ok) return r.json();
+            throw new Error();
+        }).then(data => {
+            if (data.user.role === 'admin') {
+                window.location.href = 'admin-panel.html';
+            }
+        }).catch(() => {});
+
+        // Check for URL notice
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('notice') === 'logout') {
+            showMessage('You have been signed out securely.', 'info');
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideAlerts();
+
+            const username = form.username.value.trim();
+            const password = form.password.value.trim();
+
+            if (!username || !password) {
+                showError('Enter both your username and password.');
+                return;
+            }
+
+            const btn = form.querySelector('.btn-auth-submit');
+            btn.disabled = true;
+            btn.textContent = 'Signing in...';
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    showError(data.error || 'Login failed.');
+                    btn.disabled = false;
+                    btn.textContent = 'Sign in to Admin Panel';
+                    return;
+                }
+
+                // Only allow admin role
+                if (data.user.role !== 'admin') {
+                    // Log them out since they're not admin
+                    await fetch('/api/auth/logout', { method: 'POST' });
+                    showError('This login is for administrators only. Members should use the Member Login page.');
+                    btn.disabled = false;
+                    btn.textContent = 'Sign in to Admin Panel';
+                    return;
+                }
+
+                window.location.href = 'admin-panel.html';
+            } catch (err) {
+                showError('Network error. Please try again.');
+                btn.disabled = false;
+                btn.textContent = 'Sign in to Admin Panel';
+            }
+        });
+
+        function showError(msg) {
+            authError.textContent = msg;
+            authError.style.display = 'block';
+            authMessage.style.display = 'none';
+        }
+
+        function showMessage(msg, type) {
+            authMessage.textContent = msg;
+            authMessage.className = 'alert alert-' + type;
+            authMessage.style.display = 'block';
+            authError.style.display = 'none';
+        }
+
+        function hideAlerts() {
+            authError.style.display = 'none';
+            authMessage.style.display = 'none';
+        }
+    })();
+    </script>
+</body>
+</html>

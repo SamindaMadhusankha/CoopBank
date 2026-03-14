@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .hero-banner{
+            width: 100%;
+            height: 250px;   
+             display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-banner1{
+            width: 100%;
+            height: 250px;   
+             display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .hero-banner img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-banner1 img{
+            max-width: 1500px;
+            max-height: 500px;
+            object-fit:contain;
+            margin-top: 40px;
+            
+            padding: 10px;
+            
+        }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        .is-fading {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        section.quick-actions.white-section1 {
+            background: #ffffff;
+            color: #0d1b34;
+            width: 100%;
+            max-width: 830px;
+            margin: 0 auto;
+}
+
+    @media (max-width: 768px) {
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr !important;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .portal {
+        grid-template-columns: 1fr !important;
+    }
+
+    section {
+        margin: 0 !important;
+        padding: 2rem 1rem !important;
+    }
+
+}
+
+    </style>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Capital Cooperative Bank Sri Lanka offers inclusive savings, lending, and digital member services with transparent rates and nationwide support." />
+    <meta name="keywords" content="Sri Lanka cooperative bank, savings, loans, microfinance, member services" />
+    <title>Capital Cooperative Bank | Sri Lanka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script src="assets/js/translations.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BankOrCreditUnion",
+            "name": "Capital Cooperative Bank",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "LK",
+                "addressLocality": "Colombo"
+            },
+            "telephone": "+94-11-456-7788",
+            "url": "https://coop.local/",
+            "openingHours": "Mo-Fr 08:30-17:30"
+        }
+    </script>
+</head>
+<body data-page="index" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name" data-translate="nav.name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                ☰
+            </button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html" data-translate="nav.home">Home</a>
+                <a href="about.html" data-translate="nav.about">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text" data-translate="nav.services">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html" data-translate="nav.deposit">Deposits</a>
+                        <a href="loans.html" data-translate="nav.loans">Loans</a>
+                        <a href="services.html" data-translate="nav.services">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html" data-translate="nav.membership">Membership</a>
+                <a href="branches.html" data-translate="nav.branches">Branches</a>
+                <a href="faq.html" data-translate="nav.faq">FAQ</a>
+                <a href="news.html" data-translate="nav.news">News</a>
+                <a href="contact.html" data-translate="nav.contact">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary" href="member-login.html" data-translate="nav.member-login">Member Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="open-account">
+            <div class="hero-inner">
+                <div>
+                    <div class="pill" data-translate="hero.pill">Trusted by 1.2M+ cooperative members</div>
+                    <h1 data-translate="hero.title">Future-forward cooperative banking for every Sri Lankan household.</h1>
+                    <p data-translate="hero.description">
+                        Experience digital-first savings, ethical lending, and personalized advisory built on 60 years of cooperative heritage. Access Sinhala, English, or Tamil support within seconds.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-scroll="#quick-actions" data-translate="hero.button.open-account">Open Account</button>
+                        <a class="btn btn-secondary" href="branches.html#finder" data-translate="hero.button.branch-finder">Branch Finder</a>
+                    </div>
+                    <div class="stats" aria-label="Key highlights">
+                        <div class="stat">
+                            <strong data-translate="hero.stat1.value">18%</strong>
+                            <small data-translate="hero.stat1.label">Dividend rate 2025</small>
+                        </div>
+                        <div class="stat">
+                            <strong data-translate="hero.stat2.value">7.25%</strong>
+                            <small data-translate="hero.stat2.label">Home loan from</small>
+                        </div>
+                        <div class="stat">
+                            <strong data-translate="hero.stat3.value">24/7</strong>
+                            <small data-translate="hero.stat3.label">WhatsApp agent</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-side">
+                    <div class="hero-card" aria-label="Priority services">
+                        <div class="hero-card-inner hero-shortcuts">
+                            <div class="shortcut" data-translate="index.des1">Open a Digital Savings Pack <span data-translate="index.des2">05 mins</span></div>
+                            <div class="shortcut" data-translate="index.des3">Instant SME Lending Decision <span data-translate="index.des4">24 hrs</span></div>
+                            <div class="shortcut" data-translate="index.des5">Islandwide Branch Locator <span data-translate="index.des6">80+ hubs</span></div>
+                            <div class="shortcut" data-translate="index.des7">Online Banking Registration <span data-translate="index.des8">Paperless</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-side">
+                    <figure class="hero-banner" data-hero-banner>
+                        <img src="images/Gemini.png" alt="Cooperative services and filling station" loading="lazy" />
+                    </figure>
+                </div>
+                </div>
+            </div>
+        </section>
+
+    <section class="quick-actions white-section1" id="quick-actions">
+            <div class="section-heading">
+                <figure class="hero-banner1" data-hero-banner>
+                        <img src="images/24th-anniversary.jpg" alt="Happy New Year" loading="lazy" />
+                    </figure>
+            </div>
+        </section>
+
+        <section class="quick-actions white-section" id="quick-actions">
+            <div class="section-heading">
+                <p class="pill" data-translate="quick-actions.pill">Start in guided clicks</p>
+                <h2 data-translate="quick-actions.title">Priority services up front.</h2>
+                <p data-translate="quick-actions.description">We have reorganized actions into clear journeys so you can start, resume, or finalize any banking request with certainty.</p>
+            </div>
+            <div class="grid grid-3">
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-tag" data-translate="quick-actions.membership.tag">Membership</span>
+                    </div>
+                    <h3 data-translate="quick-actions.membership.title">Open a Member Account</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/membership-1.jpg" alt="Membership" loading="lazy" />
+                    </figure>
+                    <p data-translate="quick-actions.membership.description">Secure onboarding with biometric verification, multilingual agreements, and digital signatures.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="membership.html" target="_blank" rel="noopener" data-translate="quick-actions.membership.button">View Membership Packs</a>
+                    </div>
+                </article>
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-tag" data-translate="quick-actions.loan.tag">Loan</span>
+                    </div>
+                    <h3 data-translate="quick-actions.loan.title">Apply for a Loan</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/loans-1.jpg" alt="loan" loading="lazy" />
+                    </figure>
+                    <p data-translate="quick-actions.loan.description">Compare personal, SME, and green energy products. Receive tailored repayment plans instantly.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="loans.html" target="_blank" rel="noopener" data-translate="quick-actions.loan.button">Start Application</a>
+                    </div>
+                </article>
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-tag" data-translate="quick-actions.deposit.tag">Deposit</span>
+                    </div>
+                    <h3 data-translate="quick-actions.deposit.title">Smart Deposit Options</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/deposits-2.jpg" alt="Deposit" loading="lazy" />
+                    </figure>
+                    <p data-translate="quick-actions.deposit.description">Deposit services are logically organized withaccount-opening checklists, and multilingual FAQs to guide customers at every step.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="Deposit.html" target="_blank" rel="noopener" data-translate="quick-actions.deposit.button">Start Deposit</a>
+                    </div>
+                </article>
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-tag" data-translate="quick-actions.branch.tag">Audit</span>
+                    </div>
+                    <h3 data-translate="quick-actions.branch.title">Find a Branch or Agent</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/50.jpg" alt="Audit meeting in progress" loading="lazy" />
+                    </figure>
+                    <p data-translate="quick-actions.branch.description">Geo-aware locator with accessibility filters, ATM availability, and appointment booking.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="branches.html#finder" target="_blank" rel="noopener" data-translate="quick-actions.branch.button">Launch Branch Finder</a>
+                    </div>
+                </article>  
+
+            </div>
+        </section>
+
+        <section class="white-section">
+            <div class="section-heading">
+                <p class="pill" data-translate="index.pill">Watch our story</p>
+                <h2 data-translate="index.pill1">60 years of cooperative banking excellence.</h2>
+                <p data-translate="index.para">Discover how we've been serving Sri Lankan communities with trust, transparency, and innovation.</p>
+            </div>
+            <div style="max-width: 960px; margin: 0 auto;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 12px 30px rgba(15, 34, 67, 0.15);">
+                    <iframe 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                        src="https://www.youtube.com/embed/cLkCM6hqlGU?rel=0" 
+                        title="Capital Cooperative Bank Video" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section">
+            <div class="section-heading">
+                <p class="pill" data-translate="services.pill">Information architecture refresh</p>
+                <h2 data-translate="services.title">Services grouped by life moments.</h2>
+                <p data-translate="services.description">Navigation now reflects real household decisions: protect savings, grow businesses, finance education, and plan retirements.</p>
+            </div>
+            <div class="grid grid-3">
+                <article class="card service-card">
+                    <h3 data-translate="services.savings.title">Community Savings Cloud</h3>
+                    <p data-translate="services.savings.description">Tiered dividend accounts, youth savings, and Sharia-compliant pools with transparent dashboards.</p>
+                    <div class="service-meta" data-translate="services.savings.meta">Updated daily · WCAG AA compliant</div>
+                </article>
+                <article class="card service-card">
+                    <h3 data-translate="services.lending.title">Lending for Every Stage</h3>
+                    <p data-translate="services.lending.description">Home, agri, and SME loans with predictive affordability calculators and paperless reminders.</p>
+                    <div class="service-meta" data-translate="services.lending.meta">Track status live · Sinhala/English/Tamil</div>
+                </article>
+                <article class="card service-card">
+                    <h3 data-translate="services.care.title">Digital Member Care</h3>
+                    <p data-translate="services.care.description">Secure portal, WhatsApp agent, appointment scheduling, and downloadable forms.</p>
+                    <div class="service-meta" data-translate="services.care.meta">99.95% uptime · ISO 27001</div>
+                </article>
+            </div>
+        </section>
+        
+        <section class="calculators white-section" aria-labelledby="rates">
+            <div class="section-heading" id="rates">
+                <p class="pill" data-translate="rates.pill">Transparent pricing</p>
+                <h2 data-translate="rates.title">Updated rates & interactive planners.</h2>
+                <p data-translate="rates.description">Use interactive calculators to budget repayments, savings goals, and deposit growth before you submit a form.</p>
+            </div>
+            <div class="grid grid-3">
+                <article class="card">
+                    <h3 data-translate="index.sec.1">Home Advance Promo</h3>
+                    <p data-translate="index.sec.11">Fixed 7.25% for first 24 months. Sustainable materials grant up to LKR 250,000.</p>
+                    <a href="Deposit.html#calculators" class="btn btn-secondary" data-translate="index.sec.111">Run numbers</a>
+                </article>
+                <article class="card">
+                    <h3 data-translate="index.sec.2">Champion Saver</h3>
+                    <p data-translate="index.sec.21">18% dividend projection, payable quarterly, with loyalty bonus for rural women's societies.</p>
+                    <a href="Deposit.html#deposits" class="btn btn-secondary" data-translate="index.sec.211">Compare plans</a>
+                </article>
+                <article class="card">
+                    <h3 data-translate="index.sec.3">Deposit Maturity Plus</h3>
+                    <p data-translate="index.sec.31">Track maturity, rollover options, and lien release via portal notifications.</p>
+                    <a href="Deposit.html#calculators" class="btn btn-secondary" data-translate="index.sec.311">Simulate growth</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="portal" class="white-section">
+            <div class="section-heading">
+                <p class="pill" data-translate="portal.pill">Member / Customer Portal</p>
+                <h2 data-translate="portal.title">A single login for banking, forms, and service tickets.</h2>
+                <p data-translate="portal.description">Register online, authenticate via SMS or eNIC, and access statements, standing orders, application status, and secure messaging.</p>
+            </div>
+            <div class="portal">
+                <div class="portal-panel">
+                    <h3 data-translate="index.sec1.1">Register in 3 steps</h3>
+                    <ul>
+                        <li data-translate="index.sec1.2">Use NIC + membership number for instant validation.</li>
+                        <li data-translate="index.sec1.3">Choose preferred language and accessibility mode.</li>
+                        <li data-translate="index.sec1.4">Receive secure PIN via SMS + email.</li>
+                    </ul>
+                    <a class="btn btn-primary" href="membership.html#portal" data-translate="index.sec1.5">Register Now</a>
+                </div>
+                <div class="portal-panel">
+                    <h3 data-translate="index.sec2.1">What you can do</h3>
+                    <ul>
+                        <li data-translate="index.sec2.2">View balances and download mini statements.</li>
+                        <li data-translate="index.sec2.3">Upload digital forms and supporting documents.</li>
+                        <li data-translate="index.sec2.4">Chat with relationship officers via WhatsApp.</li>
+                        <li data-translate="index.sec2.5">Monitor application milestones in real-time.</li>
+                    </ul>
+                </div>
+                <div class="portal-panel">
+                    <h3 data-translate="index.sec3.1">Security & Trust</h3>
+                    <ul>
+                        <li data-translate="index.sec3.2">Multi-factor login with biometrics on mobile.</li>
+                        <li data-translate="index.sec3.3">ISO 27001 data centers audited quarterly.</li>
+                        <li data-translate="index.sec3.4">Fraud monitoring and trust badges displayed.</li>
+                        <li data-translate="index.sec3.5">WCAG AA compliant interface.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section">
+            <div class="section-heading">
+                <p class="pill" data-translate="news.pill">News & milestones</p>
+                <h2 data-translate="news.title">Cooperative progress that matters.</h2>
+                <p data-translate="news.description">Stay informed about CSR projects, dividends, and capital adequacy. Content is refreshed weekly with multilingual summaries.</p>
+            </div>
+            <div class="grid grid-3">
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">20 Dec 2024</span>
+                        <span class="news-tag" data-translate="index.para1">Graduation</span>
+                    </div>
+                    <h3 data-translate="index.para11">PIBM Graduation Ceremony</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/graduation.jpg" alt="Graduation Photo" loading="lazy" />
+                    </figure>
+                    <p data-translate="index.para12">PIBM Graduation Ceremony 2024</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="Photos/GraduationCeremony.html" target="_blank" rel="noopener" data-translate="index.para13">See Graduation Photos</a>
+                    </div>
+                </article>
+               
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">10 Aug 2024</span>
+                        <span class="news-tag" data-translate="index.para2">Strategic plan</span>
+                    </div>
+                    <h3 data-translate="index.para21">Publishing of the Five Years Strategic Plan</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/2023-28-five-year-plan.jpg" alt="Five year strategic plan book cover" loading="lazy" />
+                    </figure>
+                    <p data-translate="index.para22">Review the 2023-2028 strategic blueprint that highlights governance, service expansion, and cooperative performance metrics.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="images/Unconfirmed.pdf" target="_blank" rel="noopener" data-translate="index.para23">Read plan (PDF)</a>
+                    </div>
+                </article>
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">20 Mar 2024</span>
+                        <span class="news-tag" data-translate="index.para3">Recognition</span>
+                    </div>
+                    <h3 data-translate="index.para31">Cash Collectors Meeting</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/51.jpg" alt="Cash collectors receiving recognition" loading="lazy" />
+                    </figure>
+                    <p data-translate="index.para32">Cash Collectors Meeting and appreciation of the highest cash collected employee, Mr. Sudarshana Suranga of Piliyandala Branch, was held at Head Office on 20 March 2024.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="Photos/Cashcollectors.html" target="_blank" rel="noopener" data-translate="index.para33">See Event Photos</a>
+                    </div>
+                </article>
+                
+                <article class="card news-card">
+                    <div class="news-meta">
+                        <span class="news-date">15 Mar 2024</span>
+                        <span class="news-tag" data-translate="index.para4">Audit</span>
+                    </div>
+                    <h3 data-translate="index.para41">Audit Meeting - 2024 Accounts</h3>
+                    <figure class="news-media">
+                        <img src="assets/img/50.jpg" alt="Audit meeting in progress" loading="lazy" />
+                    </figure>
+                    <p data-translate="index.para42">Board members and audit teams reviewed the 2024 accounts, reaffirming cooperative transparency and compliance commitments.</p>
+                    <div class="news-links">
+                        <a class="btn btn-secondary" href="Photos/Auditmeeting.html" target="_blank" rel="noopener" data-translate="index.para43">See Event Photos</a>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4 data-translate="footer.title">Capital Cooperative Bank</h4>
+                <p data-translate="footer.description">Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4 data-translate="footer.navigate">Navigate</h4>
+                <ul>
+                    <li><a href="membership.html" data-translate="nav.membership">Membership</a></li>
+                    <li><a href="services.html" data-translate="nav.services">Services</a></li>
+                    <li><a href="branches.html" data-translate="nav.branches">Branches</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-translate="footer.support">Get Support</h4>
+                <ul>
+                    <li><a href="contact.html" data-translate="nav.contact">Contact Centre</a></li>
+                    <li><a href="faq.html" data-translate="nav.faq">FAQs</a></li>
+                    <li><a href="https://wa.me/94770001122" rel="noopener" target="_blank">WhatsApp 24/7</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-translate="footer.follow">Follow Us</h4>
+                <div style="display: flex; gap: 12px; margin-top: 8px;">
+                    <a href="https://www.facebook.com/share/1AMGWg2WFe/?mibextid=wwXIfr" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Facebook" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@bdcb514?si=ei93A_KSEimSxy-q" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="YouTube" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Instagram" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                    </a>
+                    <a href="https://lk.linkedin.com/" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="LinkedIn" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Twitter" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small data-translate="footer.copyright">© 2025 Capital Cooperative Bank. All rights reserved.</small>
+            <small data-translate="footer.optimized">Optimized for performance, accessibility, and SEO.</small>
+        </div>
+    </footer>
+</body>
+</html>

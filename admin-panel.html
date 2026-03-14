@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Capital Cooperative Bank</title>
+    <meta name="description" content="Administrator console to manage Capital Cooperative Bank member accounts." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script defer src="assets/js/main.js"></script>
+    <style>
+        .admin-toolbar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+        .admin-toolbar label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .admin-toolbar select,
+        .admin-toolbar input[type="search"] {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border, #ccc);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            min-width: 160px;
+        }
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .user-table th,
+        .user-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border, #e5e7eb);
+        }
+        .user-table th {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted, #6b7280);
+        }
+        .user-table td strong {
+            display: block;
+        }
+        .user-table td small {
+            color: var(--text-muted, #6b7280);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+        .badge.role-admin { background: #dbeafe; color: #1d4ed8; }
+        .badge.role-member { background: #f3f4f6; color: #374151; }
+        .badge.status-active { background: #d1fae5; color: #065f46; }
+        .badge.status-pending { background: #fef3c7; color: #92400e; }
+        .badge.status-suspended { background: #fee2e2; color: #991b1b; }
+        .status-form {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+        }
+        .status-form select {
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border, #ccc);
+            font-size: 0.8rem;
+        }
+        .btn-compact {
+            padding: 0.3rem 0.7rem !important;
+            font-size: 0.78rem !important;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        .action-btns {
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+        .btn-danger {
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .btn-danger:hover { background: #b91c1c; }
+        /* Modal for creating user */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--bg, #fff);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal h2 { margin-bottom: 1rem; }
+        .modal .auth-form label {
+            display: block;
+            margin-top: 0.8rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .modal .auth-form input,
+        .modal .auth-form select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border, #ccc);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .flash-center {
+            max-width: 800px;
+            margin: 1rem auto;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+        .alert-info { background: #dbeafe; color: #1e40af; }
+        .alert-error { background: #fee2e2; color: #991b1b; }
+        .alert-success { background: #d1fae5; color: #065f46; }
+    </style>
+</head>
+<body data-page="admin-panel" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html">Deposits</a>
+                        <a href="loans.html">Loans</a>
+                        <a href="services.html">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html">Membership</a>
+                <a href="branches.html">Branches</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary" href="member-dashboard.html">My Dashboard</a>
+                <a class="btn btn-primary" href="#" id="logout-btn">Sign Out</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero admin-hero">
+            <div class="hero-inner">
+                <div>
+                    <div class="pill">Administrator console</div>
+                    <h1>Manage member logins and statuses.</h1>
+                    <p>View all members, approve pending registrations, suspend accounts, and manage roles.</p>
+                    <ul class="hero-bullets">
+                        <li>Filter members by status or branch.</li>
+                        <li>Approve or suspend member accounts.</li>
+                        <li>Create new users and assign roles.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Status overview</h3>
+                    <ul id="status-overview">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div id="flash-area"></div>
+
+        <section class="white-section admin-table">
+            <div class="section-heading">
+                <p class="pill">User lifecycle</p>
+                <h2>Filter and update members.</h2>
+            </div>
+
+            <div class="admin-toolbar">
+                <label>
+                    Status
+                    <select id="filter-status">
+                        <option value="all">All</option>
+                        <option value="Active">Active</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Suspended">Suspended</option>
+                    </select>
+                </label>
+                <label>
+                    Search
+                    <input type="search" id="filter-search" placeholder="Name, username, branch" />
+                </label>
+                <button class="btn btn-secondary" id="filter-apply">Apply filters</button>
+                <button class="btn btn-primary" id="create-user-btn">+ Create User</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Member</th>
+                            <th>Role</th>
+                            <th>Branch</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <tr><td colspan="5">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="white-section admin-table">
+            <div class="section-heading">
+                <p class="pill">Customer support</p>
+                <h2>Manage contact messages.</h2>
+            </div>
+
+            <div class="admin-toolbar">
+                <label>
+                    Status
+                    <select id="filter-msg-status">
+                        <option value="all">All</option>
+                        <option value="New">New</option>
+                        <option value="Read">Read</option>
+                        <option value="Replied">Replied</option>
+                    </select>
+                </label>
+                <label>
+                    Search
+                    <input type="search" id="filter-msg-search" placeholder="Email, topic, message" />
+                </label>
+                <button class="btn btn-secondary" id="filter-msg-apply">Apply filters</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>Topic</th>
+                            <th>Message</th>
+                            <th>Received</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages-tbody">
+                        <tr><td colspan="6">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Create User Modal -->
+    <div class="modal-overlay" id="create-modal">
+        <div class="modal">
+            <h2>Create New User</h2>
+            <div id="modal-error" class="alert alert-error" style="display:none;"></div>
+            <form id="create-user-form" class="auth-form" novalidate>
+                <label for="cu-name">Full Name</label>
+                <input type="text" id="cu-name" name="name" required />
+
+                <label for="cu-username">Username</label>
+                <input type="text" id="cu-username" name="username" required />
+
+                <label for="cu-email">Email</label>
+                <input type="email" id="cu-email" name="email" required />
+
+                <label for="cu-password">Password</label>
+                <input type="password" id="cu-password" name="password" required />
+
+                <label for="cu-role">Role</label>
+                <select id="cu-role" name="role">
+                    <option value="member">Member</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <label for="cu-branch">Branch</label>
+                <select id="cu-branch" name="branch" required>
+                    <option value="">Select branch</option>
+                    <option value="Head Office">Head Office</option>
+                    <option value="Athurugiriya">Athurugiriya</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Dematagoda">Dematagoda</option>
+                    <option value="Godagama">Godagama</option>
+                    <option value="Hanwella">Hanwella</option>
+                    <option value="Horana">Horana</option>
+                    <option value="Ja-Ela">Ja-Ela</option>
+                    <option value="Kadawatha">Kadawatha</option>
+                    <option value="Kaduwela">Kaduwela</option>
+                    <option value="Kottawa">Kottawa</option>
+                    <option value="Kotte">Kotte</option>
+                    <option value="Mathugama">Mathugama</option>
+                    <option value="Nittambuwa">Nittambuwa</option>
+                    <option value="Piliyandala">Piliyandala</option>
+                    <option value="Salmal Uyana">Salmal Uyana</option>
+                </select>
+
+                <label for="cu-status">Status</label>
+                <select id="cu-status" name="status">
+                    <option value="Active">Active</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Suspended">Suspended</option>
+                </select>
+
+                <label for="cu-focus">Focus</label>
+                <input type="text" id="cu-focus" name="focus" placeholder="e.g. Women Entrepreneur Pod" />
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Create User</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Capital Cooperative Bank</h4>
+                <p>Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Centre</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="https://wa.me/94770001122" rel="noopener" target="_blank">WhatsApp 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2025 Capital Cooperative Bank. All rights reserved.</small>
+            <small>Optimized for performance, accessibility, and SEO.</small>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Auth check - must be admin
+        fetch('/api/auth/me')
+            .then(r => {
+                if (!r.ok) throw new Error('Not authenticated');
+                return r.json();
+            })
+            .then(data => {
+                if (data.user.role !== 'admin') {
+                    window.location.href = 'member-dashboard.html';
+                    return;
+                }
+                loadUsers();
+            })
+            .catch(() => {
+                window.location.href = 'admin-login.html';
+            });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', async function(e) {
+            e.preventDefault();
+            await fetch('/api/auth/logout', { method: 'POST' });
+            window.location.href = 'admin-login.html?notice=logout';
+        });
+
+        // Filters
+        document.getElementById('filter-apply').addEventListener('click', loadUsers);
+        document.getElementById('filter-search').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') loadUsers();
+        });
+
+        // Create user modal
+        document.getElementById('create-user-btn').addEventListener('click', () => {
+            document.getElementById('create-modal').classList.add('active');
+        });
+        document.getElementById('cancel-modal').addEventListener('click', () => {
+            document.getElementById('create-modal').classList.remove('active');
+            document.getElementById('modal-error').style.display = 'none';
+        });
+        document.getElementById('create-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        // Create user form
+        document.getElementById('create-user-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const modalErr = document.getElementById('modal-error');
+            modalErr.style.display = 'none';
+
+            const formData = {
+                name: this.name.value.trim(),
+                username: this.username.value.trim(),
+                email: this.email.value.trim(),
+                password: this.password.value,
+                role: this.role.value,
+                branch: this.branch.value,
+                status: this.status.value,
+                focus: this.focus.value.trim()
+            };
+
+            if (!formData.name || !formData.username || !formData.email || !formData.password || !formData.branch) {
+                modalErr.textContent = 'All required fields must be filled.';
+                modalErr.style.display = 'block';
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/admin/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const data = await res.json();
+
+                if (!res.ok) {
+                    modalErr.textContent = data.error || 'Failed to create user.';
+                    modalErr.style.display = 'block';
+                    return;
+                }
+
+                document.getElementById('create-modal').classList.remove('active');
+                this.reset();
+                showFlash('User created successfully.', 'success');
+                loadUsers();
+            } catch {
+                modalErr.textContent = 'Network error.';
+                modalErr.style.display = 'block';
+            }
+        });
+
+        async function loadUsers() {
+            const status = document.getElementById('filter-status').value;
+            const q = document.getElementById('filter-search').value.trim();
+
+            let url = '/api/admin/users?status=' + encodeURIComponent(status);
+            if (q) url += '&q=' + encodeURIComponent(q);
+
+            try {
+                const res = await fetch(url);
+                if (res.status === 401 || res.status === 403) {
+                    window.location.href = 'admin-login.html';
+                    return;
+                }
+                const data = await res.json();
+
+                // Update overview
+                const overview = document.getElementById('status-overview');
+                const c = data.counts;
+                overview.innerHTML =
+                    '<li>Active · ' + c.Active + ' users</li>' +
+                    '<li>Pending · ' + c.Pending + ' users</li>' +
+                    '<li>Suspended · ' + c.Suspended + ' users</li>';
+
+                // Render table
+                const tbody = document.getElementById('users-tbody');
+                if (data.users.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No members match your filters.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = data.users.map(u =>
+                    '<tr>' +
+                    '<td><strong>' + esc(u.name) + '</strong><small>' + esc(u.username) + ' · ' + esc(u.memberId) + '</small></td>' +
+                    '<td><span class="badge role-' + u.role + '">' + capitalize(u.role) + '</span></td>' +
+                    '<td>' + esc(u.branch) + '</td>' +
+                    '<td><span class="badge status-' + u.status.toLowerCase() + '">' + esc(u.status) + '</span></td>' +
+                    '<td><div class="action-btns">' +
+                    '<form class="status-form" data-id="' + u._id + '">' +
+                    '<select name="status">' +
+                    statusOptions(u.status) +
+                    '</select>' +
+                    '<button type="submit" class="btn btn-secondary btn-compact">Update</button>' +
+                    '</form>' +
+                    '<button class="btn-danger btn-compact" onclick="deleteUser(\'' + u._id + '\', \'' + esc(u.name) + '\')">Delete</button>' +
+                    '</div></td>' +
+                    '</tr>'
+                ).join('');
+
+                // Bind status forms
+                tbody.querySelectorAll('.status-form').forEach(form => {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        const id = this.dataset.id;
+                        const newStatus = this.querySelector('select').value;
+
+                        const res = await fetch('/api/admin/users/' + id + '/status', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ status: newStatus })
+                        });
+
+                        if (res.ok) {
+                            showFlash('Status updated.', 'success');
+                            loadUsers();
+                        } else {
+                            showFlash('Failed to update status.', 'error');
+                        }
+                    });
+                });
+            } catch {
+                document.getElementById('users-tbody').innerHTML =
+                    '<tr><td colspan="5">Error loading users.</td></tr>';
+            }
+        }
+
+        // Make deleteUser globally accessible
+        window.deleteUser = async function(id, name) {
+            if (!confirm('Delete user "' + name + '"? This cannot be undone.')) return;
+
+            const res = await fetch('/api/admin/users/' + id, { method: 'DELETE' });
+            const data = await res.json();
+
+            if (res.ok) {
+                showFlash('User deleted.', 'success');
+                loadUsers();
+            } else {
+                showFlash(data.error || 'Failed to delete user.', 'error');
+            }
+        };
+
+        function statusOptions(current) {
+            return ['Active', 'Pending', 'Suspended'].map(s =>
+                '<option value="' + s + '"' + (s === current ? ' selected' : '') + '>' + s + '</option>'
+            ).join('');
+        }
+
+        function showFlash(msg, type) {
+            const area = document.getElementById('flash-area');
+            area.innerHTML = '<div class="alert alert-' + type + ' flash-center" role="status">' + esc(msg) + '</div>';
+            setTimeout(() => { area.innerHTML = ''; }, 4000);
+        }
+
+        function esc(str) {
+            const d = document.createElement('div');
+            d.textContent = str || '';
+            return d.innerHTML;
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Message management
+        document.getElementById('filter-msg-apply').addEventListener('click', loadMessages);
+        document.getElementById('filter-msg-search').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') loadMessages();
+        });
+
+        async function loadMessages() {
+            const status = document.getElementById('filter-msg-status').value;
+            const q = document.getElementById('filter-msg-search').value.trim();
+
+            let url = '/api/admin/messages?status=' + encodeURIComponent(status);
+            if (q) url += '&q=' + encodeURIComponent(q);
+
+            try {
+                const res = await fetch(url);
+                if (res.status === 401 || res.status === 403) {
+                    window.location.href = 'admin-login.html';
+                    return;
+                }
+                const data = await res.json();
+
+                const tbody = document.getElementById('messages-tbody');
+                if (data.messages.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6">No messages found.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = data.messages.map(m => {
+                    const date = new Date(m.createdAt).toLocaleDateString();
+                    const msgPreview = m.message.substring(0, 50) + (m.message.length > 50 ? '...' : '');
+                    return '<tr>' +
+                        '<td><strong>' + esc(m.email) + '</strong></td>' +
+                        '<td>' + esc(m.topic) + '</td>' +
+                        '<td><small>' + esc(msgPreview) + '</small></td>' +
+                        '<td><small>' + date + '</small></td>' +
+                        '<td><span class="badge status-' + m.status.toLowerCase() + '">' + esc(m.status) + '</span></td>' +
+                        '<td><div class="action-btns">' +
+                        '<form class="status-form" data-id="' + m._id + '">' +
+                        '<select name="status">' +
+                        messageStatusOptions(m.status) +
+                        '</select>' +
+                        '<button type="submit" class="btn btn-secondary btn-compact">Update</button>' +
+                        '</form>' +
+                        '</div></td>' +
+                        '</tr>';
+                }).join('');
+
+                // Bind message status forms
+                tbody.querySelectorAll('.status-form').forEach(form => {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        const id = this.dataset.id;
+                        const newStatus = this.querySelector('select').value;
+
+                        const res = await fetch('/api/admin/messages/' + id + '/status', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ status: newStatus })
+                        });
+
+                        if (res.ok) {
+                            showFlash('Message status updated.', 'success');
+                            loadMessages();
+                        } else {
+                            showFlash('Failed to update message status.', 'error');
+                        }
+                    });
+                });
+            } catch {
+                document.getElementById('messages-tbody').innerHTML =
+                    '<tr><td colspan="6">Error loading messages.</td></tr>';
+            }
+        }
+
+        function messageStatusOptions(current) {
+            return ['New', 'Read', 'Replied'].map(s =>
+                '<option value="' + s + '"' + (s === current ? ' selected' : '') + '>' + s + '</option>'
+            ).join('');
+        }
+
+        // Initial load of messages
+        loadMessages();
+    })();
+    </script>
+</body>
+</html>

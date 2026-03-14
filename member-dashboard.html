@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Dashboard | Capital Cooperative Bank</title>
+    <meta name="description" content="Monitor savings, loans, and tickets from the Capital Cooperative Bank member dashboard." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script defer src="assets/js/main.js"></script>
+</head>
+<body data-page="member-dashboard" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html">Deposits</a>
+                        <a href="loans.html">Loans</a>
+                        <a href="services.html">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html">Membership</a>
+                <a href="branches.html">Branches</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary active" href="member-dashboard.html">My Dashboard</a>
+                <a class="btn btn-primary" href="#" id="logout-btn">Sign Out</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="dashboard-content">
+        <section class="hero dashboard-hero">
+            <div class="hero-inner">
+                <div>
+                    <div class="pill">Welcome back</div>
+                    <h1 id="user-name">Loading...</h1>
+                    <p id="user-info"></p>
+                    <div class="stats ribbon">
+                        <div class="stat">
+                            <strong id="user-focus"></strong>
+                            <small>Focus journey</small>
+                        </div>
+                        <div class="stat">
+                            <strong id="user-last-login">Session active</strong>
+                            <small>Last login</small>
+                        </div>
+                        <div class="stat">
+                            <strong id="user-status">Active</strong>
+                            <small>Status</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Quick actions</h3>
+                    <ul>
+                        <li><a href="services.html#calculators" class="link">Run a calculator</a></li>
+                        <li><a href="membership.html#portal" class="link">Download application forms</a></li>
+                        <li><a href="mailto:portal-support@coopbank.lk" class="link">Contact relationship officer</a></li>
+                    </ul>
+                    <a class="btn btn-secondary" href="admin-panel.html" id="admin-link" style="display:none;">Admin Panel</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section dashboard-cards">
+            <div class="section-heading">
+                <p class="pill">Portfolio snapshot</p>
+                <h2>Your live cooperative summary.</h2>
+            </div>
+            <div class="grid grid-3" id="stats-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <section class="white-section dashboard-detail">
+            <div class="grid grid-2">
+                <article class="card">
+                    <h3>Recent activity</h3>
+                    <ul class="activity-list" id="activity-list">
+                        <!-- Populated by JS -->
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>My tasks</h3>
+                    <ul class="task-list" id="task-list">
+                        <!-- Populated by JS -->
+                    </ul>
+                    <a class="btn btn-secondary" href="mailto:portal-support@coopbank.lk">Request assistance</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="white-section documents">
+            <div class="section-heading">
+                <p class="pill">Documents &amp; tickets</p>
+                <h2>Everything submitted through the portal.</h2>
+            </div>
+            <div class="grid grid-2">
+                <article class="card">
+                    <h3>Document tracker</h3>
+                    <ul class="document-list" id="document-list">
+                        <!-- Populated by JS -->
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Support &amp; learning</h3>
+                    <p>Launch tutorials, schedule a callback, or download bilingual guides tailored to your focus area.</p>
+                    <div class="grid grid-2 mini">
+                        <div>
+                            <h4>Guides</h4>
+                            <ul>
+                                <li><a class="link" href="membership.html#portal">Digital portal manual</a></li>
+                                <li><a class="link" href="services.html#loans">Loan checklist</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Contacts</h4>
+                            <ul>
+                                <li>Officer hotline +94 11 456 7788</li>
+                                <li>WhatsApp +94 770 001 122</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Capital Cooperative Bank</h4>
+                <p>Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Centre</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="https://wa.me/94770001122" rel="noopener" target="_blank">WhatsApp 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2025 Capital Cooperative Bank. All rights reserved.</small>
+            <small>Optimized for performance, accessibility, and SEO.</small>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        let currentUser = null;
+
+        // Check auth
+        fetch('/api/auth/me')
+            .then(r => {
+                if (!r.ok) throw new Error('Not authenticated');
+                return r.json();
+            })
+            .then(data => {
+                currentUser = data.user;
+                renderDashboard();
+            })
+            .catch(() => {
+                window.location.href = 'member-login.html';
+            });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', async function(e) {
+            e.preventDefault();
+            await fetch('/api/auth/logout', { method: 'POST' });
+            window.location.href = 'member-login.html?notice=logout';
+        });
+
+        function renderDashboard() {
+            const u = currentUser;
+            document.getElementById('user-name').textContent = u.name;
+            document.getElementById('user-info').textContent =
+                'Member ID ' + u.memberId + ' · ' + u.branch + ' branch';
+            document.getElementById('user-focus').textContent = u.focus || 'General';
+            document.getElementById('user-status').textContent = u.status;
+
+            if (u.lastLogin) {
+                const d = new Date(u.lastLogin);
+                document.getElementById('user-last-login').textContent =
+                    d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) +
+                    ' · ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+            }
+
+            if (u.role === 'admin') {
+                document.getElementById('admin-link').style.display = '';
+            }
+
+            // Stats
+            const statsGrid = document.getElementById('stats-grid');
+            const portfolio = u.portfolio || { stats: [], activities: [], tasks: [], documents: [] };
+
+            if (portfolio.stats && portfolio.stats.length) {
+                statsGrid.innerHTML = portfolio.stats.map(s =>
+                    '<article class="card stat-card">' +
+                    '<p class="card-label">' + escHtml(s.label) + '</p>' +
+                    '<h3>' + escHtml(s.value) + '</h3>' +
+                    '<small class="trend">' + escHtml(s.trend) + '</small>' +
+                    '</article>'
+                ).join('');
+            } else {
+                statsGrid.innerHTML = '<p>No portfolio data available.</p>';
+            }
+
+            // Activities
+            const actList = document.getElementById('activity-list');
+            if (portfolio.activities && portfolio.activities.length) {
+                actList.innerHTML = portfolio.activities.map(a =>
+                    '<li><div><strong>' + escHtml(a.detail) + '</strong>' +
+                    '<small>' + escHtml(a.channel) + '</small></div>' +
+                    '<span>' + escHtml(a.time) + '</span></li>'
+                ).join('');
+            } else {
+                actList.innerHTML = '<li>No activity logged for this account.</li>';
+            }
+
+            // Tasks
+            const taskList = document.getElementById('task-list');
+            if (portfolio.tasks && portfolio.tasks.length) {
+                taskList.innerHTML = portfolio.tasks.map(t =>
+                    '<li><span>' + escHtml(t.item) + '</span>' +
+                    '<strong>' + escHtml(t.due) + '</strong></li>'
+                ).join('');
+            } else {
+                taskList.innerHTML = '<li>All caught up. No outstanding tasks.</li>';
+            }
+
+            // Documents
+            const docList = document.getElementById('document-list');
+            if (portfolio.documents && portfolio.documents.length) {
+                docList.innerHTML = portfolio.documents.map(d =>
+                    '<li><div><strong>' + escHtml(d.name) + '</strong>' +
+                    '<small>Status</small></div>' +
+                    '<span class="badge status-' + d.status.toLowerCase() + '">' + escHtml(d.status) + '</span></li>'
+                ).join('');
+            } else {
+                docList.innerHTML = '<li>No documents submitted.</li>';
+            }
+        }
+
+        function escHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str || '';
+            return div.innerHTML;
+        }
+    })();
+    </script>
+</body>
+</html>

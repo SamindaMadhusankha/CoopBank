@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Login | Capital Cooperative Bank</title>
+    <meta name="description" content="Access the Capital Cooperative Bank member dashboard to review loans, savings, and service tickets." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script defer src="assets/js/main.js"></script>
+</head>
+<body data-page="member-login" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html">Deposits</a>
+                        <a href="loans.html">Loans</a>
+                        <a href="services.html">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html">Membership</a>
+                <a href="branches.html">Branches</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary active" href="member-login.html">Member Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="secure-login">
+            <div class="hero-inner">
+                <div>
+                    <div class="pill">Secure portal</div>
+                    <h1>Log in to manage savings, loans, and service tickets.</h1>
+                    <p>Use your assigned cooperative username to enter the dashboard.</p>
+                    <ul class="hero-bullets">
+                        <li>Track deposits, loans, and dividend payouts.</li>
+                        <li>Submit service tickets and upload supporting files.</li>
+                        <li>Switch seamlessly between Sinhala, Tamil, or English.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Need help?</h3>
+                    <p>Contact the digital member care desk via:</p>
+                    <ul>
+                        <li>+94 11 456 7788 (option 4)</li>
+                        <li>portal-support@coopbank.lk</li>
+                        <li>WhatsApp agent +94 770 001 122</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section portal-auth">
+            <div class="grid grid-2">
+                <article class="card">
+                    <h2 id="auth-title">Member login</h2>
+                    <p id="auth-subtitle">Enter the username and password issued during onboarding to access your dashboard.</p>
+                    <div id="auth-message" class="alert" role="status" style="display:none;"></div>
+                    <div id="auth-error" class="alert alert-error" role="alert" style="display:none;"></div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form" novalidate>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="e.g. savindi" autocomplete="username" required />
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter secure password" autocomplete="current-password" required />
+
+                        <div class="auth-actions">
+                            <label class="remember">
+                                <input type="checkbox" name="remember" value="1" />
+                                Keep me signed in for this session
+                            </label>
+                            <a href="mailto:portal-support@coopbank.lk" class="link">Forgot password?</a>
+                        </div>
+                        <button class="btn btn-primary btn-auth-submit" type="submit">Sign in</button>
+                    </form>
+
+                    <!-- Register Form (hidden by default) -->
+                    <form id="register-form" class="auth-form" style="display:none;" novalidate>
+                        <label for="reg-name">Full Name</label>
+                        <input type="text" id="reg-name" name="name" placeholder="e.g. Savindi Jayasena" required />
+
+                        <label for="reg-username">Username</label>
+                        <input type="text" id="reg-username" name="username" placeholder="e.g. savindi" autocomplete="username" required />
+
+                        <label for="reg-email">Email</label>
+                        <input type="email" id="reg-email" name="email" placeholder="e.g. savindi@email.com" required />
+
+                        <label for="reg-branch">Branch</label>
+                        <select id="reg-branch" name="branch" required>
+                            <option value="">Select your branch</option>
+                            <option value="Head Office">Head Office</option>
+                            <option value="Athurugiriya">Athurugiriya</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Dematagoda">Dematagoda</option>
+                            <option value="Godagama">Godagama</option>
+                            <option value="Hanwella">Hanwella</option>
+                            <option value="Horana">Horana</option>
+                            <option value="Ja-Ela">Ja-Ela</option>
+                            <option value="Kadawatha">Kadawatha</option>
+                            <option value="Kaduwela">Kaduwela</option>
+                            <option value="Kottawa">Kottawa</option>
+                            <option value="Kotte">Kotte</option>
+                            <option value="Mathugama">Mathugama</option>
+                            <option value="Nittambuwa">Nittambuwa</option>
+                            <option value="Piliyandala">Piliyandala</option>
+                            <option value="Salmal Uyana">Salmal Uyana</option>
+                        </select>
+
+                        <label for="reg-password">Password</label>
+                        <input type="password" id="reg-password" name="password" placeholder="Minimum 6 characters" autocomplete="new-password" required />
+
+                        <label for="reg-confirm">Confirm Password</label>
+                        <input type="password" id="reg-confirm" name="confirm" placeholder="Re-enter password" autocomplete="new-password" required />
+
+                        <button class="btn btn-primary btn-auth-submit" type="submit">Register</button>
+                    </form>
+
+                    <p class="auth-toggle-text" style="margin-top:1.5rem; text-align:center;">
+                        <span id="toggle-msg">Don't have an account?</span>
+                        <a href="#" id="auth-toggle" class="link">Register here</a>
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Capital Cooperative Bank</h4>
+                <p>Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Centre</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="https://wa.me/94770001122" rel="noopener" target="_blank">WhatsApp 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2025 Capital Cooperative Bank. All rights reserved.</small>
+            <small>Optimized for performance, accessibility, and SEO.</small>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const authToggle = document.getElementById('auth-toggle');
+        const authTitle = document.getElementById('auth-title');
+        const authSubtitle = document.getElementById('auth-subtitle');
+        const toggleMsg = document.getElementById('toggle-msg');
+        const authError = document.getElementById('auth-error');
+        const authMessage = document.getElementById('auth-message');
+
+        // Check if already logged in
+        fetch('/api/auth/me').then(r => {
+            if (r.ok) window.location.href = 'member-dashboard.html';
+        }).catch(() => {});
+
+        // Check for URL notice
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('notice') === 'logout') {
+            showMessage('You have been signed out securely.', 'info');
+        }
+
+        let isLogin = true;
+
+        authToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            isLogin = !isLogin;
+            hideAlerts();
+            if (isLogin) {
+                loginForm.style.display = '';
+                registerForm.style.display = 'none';
+                authTitle.textContent = 'Member login';
+                authSubtitle.textContent = 'Enter the username and password issued during onboarding to access your dashboard.';
+                toggleMsg.textContent = "Don't have an account?";
+                authToggle.textContent = 'Register here';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = '';
+                authTitle.textContent = 'Register';
+                authSubtitle.textContent = 'Create a new member account. Your account will be pending admin approval.';
+                toggleMsg.textContent = 'Already have an account?';
+                authToggle.textContent = 'Sign in here';
+            }
+        });
+
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideAlerts();
+
+            const username = loginForm.username.value.trim();
+            const password = loginForm.password.value.trim();
+
+            if (!username || !password) {
+                showError('Enter both your username and password.');
+                return;
+            }
+
+            const btn = loginForm.querySelector('.btn-auth-submit');
+            btn.disabled = true;
+            btn.textContent = 'Signing in...';
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    showError(data.error || 'Login failed.');
+                    btn.disabled = false;
+                    btn.textContent = 'Sign in';
+                    return;
+                }
+
+                // Only allow members — block admin accounts
+                if (data.user.role === 'admin') {
+                    await fetch('/api/auth/logout', { method: 'POST' });
+                    showError('Admin accounts cannot log in here. Please use the Admin Login page.');
+                    btn.disabled = false;
+                    btn.textContent = 'Sign in';
+                    return;
+                }
+
+                window.location.href = 'member-dashboard.html';
+            } catch (err) {
+                showError('Network error. Please try again.');
+                btn.disabled = false;
+                btn.textContent = 'Sign in';
+            }
+        });
+
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideAlerts();
+
+            const name = registerForm.name.value.trim();
+            const username = registerForm.username.value.trim();
+            const email = registerForm.email.value.trim();
+            const branch = registerForm.branch.value;
+            const password = registerForm.password.value;
+            const confirm = registerForm.confirm.value;
+
+            if (!name || !username || !email || !branch || !password) {
+                showError('All fields are required.');
+                return;
+            }
+
+            if (password.length < 6) {
+                showError('Password must be at least 6 characters.');
+                return;
+            }
+
+            if (password !== confirm) {
+                showError('Passwords do not match.');
+                return;
+            }
+
+            const btn = registerForm.querySelector('.btn-auth-submit');
+            btn.disabled = true;
+            btn.textContent = 'Registering...';
+
+            try {
+                const res = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, name, email, password, branch })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    showError(data.error || 'Registration failed.');
+                    btn.disabled = false;
+                    btn.textContent = 'Register';
+                    return;
+                }
+
+                showMessage('Registration successful! Your Member ID is ' + data.memberId + '. Your account is pending approval by an administrator. You can sign in once approved.', 'info');
+                registerForm.reset();
+                btn.disabled = false;
+                btn.textContent = 'Register';
+
+                // Switch to login after 60 seconds
+                setTimeout(() => { authToggle.click(); }, 60000);
+            } catch (err) {
+                showError('Network error. Please try again.');
+                btn.disabled = false;
+                btn.textContent = 'Register';
+            }
+        });
+
+        function showError(msg) {
+            authError.textContent = msg;
+            authError.style.display = 'block';
+            authMessage.style.display = 'none';
+        }
+
+        function showMessage(msg, type) {
+            authMessage.textContent = msg;
+            authMessage.className = 'alert alert-' + type;
+            authMessage.style.display = 'block';
+            authError.style.display = 'none';
+        }
+
+        function hideAlerts() {
+            authError.style.display = 'none';
+            authMessage.style.display = 'none';
+        }
+    })();
+    </script>
+</body>
+</html>

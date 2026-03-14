@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Capital Cooperative Bank Sri Lanka offers inclusive savings, lending, and digital member services with transparent rates and nationwide support." />
+    <meta name="keywords" content="Sri Lanka cooperative bank, savings, loans, microfinance, member services" />
+    <title>Capital Cooperative Bank | Sri Lanka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/png" href="assets/img/coop-and-coopbank-logo-200px.png" />
+    <script src="assets/js/translations.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BankOrCreditUnion",
+            "name": "Capital Cooperative Bank",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "LK",
+                "addressLocality": "Colombo"
+            },
+            "telephone": "+94-11-456-7788",
+            "url": "https://coop.local/",
+            "openingHours": "Mo-Fr 08:30-17:30"
+        }
+    </script>
+</head>
+<style>
+
+    /* SECONDARY NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 80px;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 999;
+            border-bottom: 3px solid var(--bank-gold);
+        }
+        .navbar a {
+            text-decoration: none;
+            color: var(--bank-dark);
+            font-weight: 700;
+            padding: 15px 25px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            color: var(--bank-blue);
+            background: var(--bg-light);
+        }
+
+:root {
+    --tab-bg: #fff;                 /* Light mode tab panel background */
+    --tab-text: #1a2b48;            /* Light mode text */
+    --tab-button-bg: #2b7bff;       /* Light mode button background */
+    --tab-button-text: #fff;        /* Light mode button text */
+    --tab-button-selected-bg: #f2b705; /* Selected tab background */
+    --tab-button-selected-text: #1a1a1a; /* Selected tab text */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tab-bg:  #f9f9f9;          
+        --tab-text: #f4f4f4;
+        --tab-button-bg: #2b3a5f;
+        --tab-button-text: #f4f4f4;
+        --tab-button-selected-bg: #f2b705;
+        --tab-button-selected-text: #1a1a1a;
+    }
+}
+
+/* TABLIST CONTAINER */
+.tabs { 
+    background-color: var(--tab-bg); 
+    color: var(--tab-text);
+    border-radius: 10px; 
+    padding: 20px; 
+    max-width: 800px; 
+    margin: 20px auto; 
+
+
+}
+
+/* TAB BUTTONS */
+.tab-buttons { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+
+.tab-buttons button {
+            background-color: var(--bank-blue);
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+.tab-buttons button[aria-selected="true"] { 
+    background-color: var(--tab-button-selected-bg); 
+    color: var(--tab-button-selected-text); 
+}
+
+.tab-buttons button:hover { 
+    opacity: 0.85; 
+}
+
+/* TAB PANELS */
+.tab-panels { 
+    background-color: var(--tab-bg);
+    color: var(--tab-text); 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+        /* TABLIST */
+        
+        .tab-buttons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+        }
+        
+        .tab-buttons button[aria-selected="true"] { 
+            background-color: var(--bank-gold); 
+            color: var(--bank-dark); 
+        }
+        .tab-buttons button:hover { 
+            opacity: 0.85; 
+        }
+        .tab-panels { 
+            background-color: white;
+            color: var(--bank-dark); 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        /* DARK MODE FIX FOR YOUR OUTPUT */
+@media (prefers-color-scheme: dark) {
+    .tabs {
+        background-color: #1b1b2f; /* dark panel bg */
+        color: #e0e0e0;            /* light text */
+    }
+
+    .tab-buttons button {
+        background-color: #2c2c44; /* slightly lighter dark buttons */
+        color: #ccc;               /* readable unselected text */
+    }
+
+    .tab-buttons button[aria-selected="true"] {
+        background-color: #f1c40f; /* gold */
+        color: #1b1b2f;           /* dark text for contrast */
+    }
+
+    .tab-buttons button:hover {
+        opacity: 0.85;
+    }
+
+    .tab-panels {
+        background-color: #2a2a3f; /* dark panel for content */
+        color: #e0e0e0;            /* light text */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    }
+}
+        /* GRID */
+        .grid { display: grid; gap: 20px; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        @media(max-width: 768px){
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+    /* ========== DIRECTORS & STAFF ========== */
+.person-card {
+    text-align: center;
+    padding: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.person-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.person-card img {
+    
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.person-card h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.person-card span {
+    
+    font-size: 14px;
+    color: #0b4f6c;
+    font-weight: 500;
+}
+.img-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+        .achievements {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .achievement-item {
+            background-color: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .achievement-item h3 {
+            color: #004080;
+            margin-bottom: 10px;
+        }
+
+        .achievement-item p {
+            color: #333;
+        }
+
+        /* Center images inside achievements */
+        .achievement-item img {
+            max-width: 100px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 500px; /* optional */
+            height: auto;
+            aspect-ratio: 2 / 1; /* keeps 500x250 ratio */
+            overflow: hidden;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media(max-width: 768px){
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+.hero-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    align-items: center;
+    height: auto; /* was 300px fixed, make auto for mobile */
+    margin-top: -70px;
+}
+
+@media(max-width: 768px){
+    .hero-inner {
+        margin-top: 0;
+        gap: 1.5rem;
+    }
+}
+
+</style>
+<body data-page="about" data-theme="light">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="index.html" aria-label="Capital Cooperative Bank">
+                <img src="assets/img/coop-and-coopbank-logo-200px.png" width="40" height="40" alt="Capital Cooperative Bank logo" class="brand-logo" />
+                <span class="brand-name" data-translate="nav.name">Capital Cooperative Bank</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="primary-nav" aria-label="Primary">
+                <a href="index.html" data-translate="nav.home">Home</a>
+                <a href="about.html" data-translate="nav.about">About Us</a>
+                <div class="nav-item">
+                    <a href="services.html" class="nav-link">
+                        <span class="nav-text" data-translate="nav.services">Services</span>
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="Deposit.html" data-translate="nav.deposit">Deposits</a>
+                        <a href="loans.html" data-translate="nav.loans">Loans</a>
+                        <a href="services.html" data-translate="nav.services">Other Services</a>
+                    </div>
+                </div>
+                <a href="membership.html" data-translate="nav.membership">Membership</a>
+                <a href="branches.html" data-translate="nav.branches">Branches</a>
+                <a href="faq.html" data-translate="nav.faq">FAQ</a>
+                <a href="news.html" data-translate="nav.news">News</a>
+                <a href="contact.html" data-translate="nav.contact">Contact Us</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="language-toggle" aria-label="Language toggle">
+                    <button type="button" class="active" data-lang="en">EN</button>
+                    <button type="button" data-lang="si">සිං</button>
+                    <button type="button" data-lang="ta">தமிழ்</button>
+                </div>
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" data-theme-toggle="nav">
+                    <span class="theme-toggle-track" aria-hidden="true">
+                        <span class="theme-toggle-thumb"></span>
+                    </span>
+                    <span class="theme-toggle-text">Dark mode</span>
+                </button>
+                <a class="btn btn-secondary" href="membership.html">Join</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <div>
+                    <div class="pill" data-translate="about.pill">Since 1965</div>
+                    <h1 data-translate="about.hero.title">Cooperative strength powering inclusive finance.</h1>
+                    <p data-translate="about.hero.description">We are a member-owned institution connecting rural entrepreneurs, urban professionals, and diaspora investors with transparent, ethical finance.</p>
+                    
+                </div>
+                <div class="card">
+                    <h3 data-translate="about.impact.title">Impact snapshot</h3>
+                    <ul>
+                        <li data-translate="about.impact.para1">80+ service outlets across 22 districts.</li>
+                        <li data-translate="about.impact.para2">LKR 42B assets under management.</li>
+                        <li data-translate="about.impact.para3">42% women leadership representation.</li>
+                        <li data-translate="about.impact.para4">Net promoter score 74.</li>
+                    </ul>
+                </div>
+                <div class="hero-side">
+                    <figure class="hero-banner" data-hero-banner>
+                        <img src="images/About-Us.png" alt="Cooperative services and filling station" loading="lazy" height="25%">
+                    </figure>
+            </div>
+            </div>
+            
+        </section>
+
+        <nav class="navbar">
+        <a href="#strategy" data-translate="about.nav.strategy">Strategy</a>
+        <a href="#board" data-translate="about.nav.board">Board of Directors</a>
+        <a href="#staff" data-translate="about.nav.staff">Our Staff</a>
+        <a href="#achievements" data-translate="about.nav.achievements">Achievements</a>
+        </nav>
+
+        <!-- TABLIST: Mission, Vision, Objectives -->
+<section id="strategy">
+    <h2 class="faq-meta" data-translate="about.strategy.title">Vision, Mission & Objectives </h2>
+    <div class="tabs">
+        <div class="tab-buttons" role="tablist">
+            <button role="tab" aria-selected="true" aria-controls="tab-mission" id="btn-mission" data-translate="about.strategy.mission">Mission</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-vision" id="btn-vision" data-translate="about.strategy.vision">Vision</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-objectives" id="btn-objectives" data-translate="about.strategy.objectives">Objectives</button>
+        </div>
+        <div class="tab-panels">
+            <div id="tab-vision" data-translate="about.strategy.vision.para" role="tabpanel" aria-labelledby="btn-vision" hidden  class="faq-meta">
+                <p>Building a new society based on cooperative principles and values.</p>
+            </div>
+            <div id="tab-mission" data-translate="about.strategy.mission.para" role="tabpanel" aria-labelledby="btn-mission" class="faq-meta">
+                <p >Act as a manager, advisor, protector, agent, publicist, banker, investor, trainer, 
+                    etc. to provide the needed assistance for the purpose of empowering the 
+                    member entrepreneurs living in the Western Province of Sri Lanka according 
+                    to the philosophy of the Society and the cooperative policies and cooperative 
+                    laws, subject to the terms of the by-laws.</p>
+            </div>
+            
+            <div id="tab-objectives" data-translate="about.strategy.object.para" role="tabpanel" aria-labelledby="btn-objectives" hidden>
+                <ul type="circle">
+                    <li data-translate="about.strategy.object.para1" class="faq-meta">Development of saving, thrift, investment promotion in the membership.</li>
+                    <li data-translate="about.strategy.object.para2" class="faq-meta">Receiving and Aggregating Member and Non-Member Savings Deposits.</li>
+                    <li data-translate="about.strategy.object.para3" class="faq-meta">Introducing and implementing an effective credit system to rescue 
+                        entrepreneurs, members, individuals and people who are stuck in a 
+                        vicious cycle of debt through various methods.</li>
+                    <li data-translate="about.strategy.object.para4" class="faq-meta">Coordinating products, distribution sales and target market.</li>
+                    <li data-translate="about.strategy.object.para5" class="faq-meta">Contribute to development by identifying, unifying and utilizing 
+                        existing resources in the jurisdiction.</li>
+                    <li data-translate="about.strategy.object.para6" class="faq-meta">Jewelery pawning services to assist in emergency situations.</li>
+                    <li data-translate="about.strategy.object.para7" class="faq-meta">Provision of agency services.</li>
+                    <li data-translate="about.strategy.object.para8" class="faq-meta">Contributing to investing resources in national development.</li>
+                    <li data-translate="about.strategy.object.para9" class="faq-meta">Providing education and training for business development.</li>
+                    <li data-translate="about.strategy.object.para10" class="faq-meta">Raising funds and investing effectively and safely.</li>
+                    <li data-translate="about.strategy.object.para11" class="faq-meta">Facilities for the payment of essential bills such as water, electricity 
+                        and telephone for the ease of the customer.</li>
+                    <li data-translate="about.strategy.object.para12" class="faq-meta">Implementation of safeguards.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+    <script>
+        const tabs = document.querySelectorAll('.tab-buttons [role="tab"]');
+        const panels = document.querySelectorAll('.tab-panels [role="tabpanel"]');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+                panels.forEach(p => p.hidden = true);
+
+                tab.setAttribute('aria-selected', 'true');
+                const panel = document.getElementById(tab.getAttribute('aria-controls'));
+                panel.hidden = false;
+            });
+        });
+    </script>
+
+        <!-- BOARD -->
+        <section id="board">
+            <div class="section-heading">
+             <h2 data-translate="about.bod">Board of Directors</h2>
+        </div>
+    <div class="grid grid-3">
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image1.png">
+            </div>
+            <h4 data-translate="about.bod1">Lion Shirley Ariyaratna</h4>
+            <span data-translate="about.bod11">Hon Chairman</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image2.png">
+            </div>
+            <h4 data-translate="about.bod2">Mrs. L. Deepa Perera</h4>
+            <span data-translate="about.bod21">Hon Vice President</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image3.png">
+            </div>
+            <h4 data-translate="about.bod3">Mrs. Sriyani Nawagamuwa</h4>
+            <span data-translate="about.bod31">Hon Secretary General</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image4.png">
+            </div>
+            <h4 data-translate="about.bod4">Lion Dr. Piyal Ramawickrama</h4>
+            <span data-translate="about.bod41">Director</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image5.png">
+            </div>
+            <h4 data-translate="about.bod5">Gamini Jayaweera</h4>
+            <span data-translate="about.bod51">Hon Director</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image6.png">
+            </div>
+            <h4 data-translate="about.bod6">U. Gayan Dananjaya Perera</h4>
+            <span data-translate="about.bod61">Hon Director</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image7.png"> 
+            </div>
+            <h4 data-translate="about.bod7">Mrs. Indrani Dissanayaka</h4>
+            <span data-translate="about.bod71">Hon Directress</span>
+        </div>
+    </div>
+    </section>
+     <!-- STAFF -->
+<section class="light", id="staff">
+    <div class="section-heading">
+        <h2 data-translate="about.staff">Executive Staff</h2>
+    </div>
+    <div class="grid grid-3">
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image8.png">
+            </div>
+            <h4 data-translate="about.staff1">S. Iresha Gayani Jayathilaka</h4>
+            <span data-translate="about.staff11">General Manager</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image9.png">
+            </div>
+            <h4 data-translate="about.staff2">D.M. Nilanka Lakmali Nanayakkara</h4>
+            <span data-translate="about.staff21">Assistant General Manager (Audit)</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image10.png">
+            </div>
+            <h4 data-translate="about.staff3">K.T. Chathurangani</h4>
+            <span data-translate="about.staff31">Assistant General Manager (Finance)</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image11.png">
+            </div>
+            <h4 data-translate="about.staff4">H.P. Manjula kaldera</h4>
+            <span data-translate="about.staff41">Assistant General Manager (HR)</span>
+        </div>
+        <div class="card person-card">
+            <div class="img-center">
+            <img src="images/image12.png">
+            </div>
+            <h4 data-translate="about.staff5">H.K. Menaka Madurangani</h4>
+            <span data-translate="about.staff51">Assistant General Manager (Recovery)</span>
+        </div>
+    </div>
+</section>
+ <!-- ACHIEVEMENTS -->
+    <section class="light", id="achievements">
+    <div class="section-heading">
+        <h2 data-translate="about.achive">Our Achievements</h2>
+    </div>
+        <div class="card person-card">
+        <div class="achievement-item">
+            <img src="images/2008trophy.jpg" alt="Award 1">
+            <h3 data-translate="about.achive1">All Island Productivity Award & Certificate</h3>
+            <p data-translate="about.achive11">All Island Productivity Award & Certificate on October 20, 2008</p>
+        </div>
+        </div>
+        <div class="card person-card">
+        <div class="achievement-item">
+            <img src="images/2004trophy.jpg" alt="Award 2">
+            <h3 data-translate="about.achive2">82nd International Co-operative Day</h3>
+            <p data-translate="about.achive21">Achievement Award at the 82nd International Co-operative Day in the year 2004 </p>
+        </div>
+        </div>
+        <div class="card person-card">
+        <div class="achievement-item">
+            <img src="images/2003trophy.jpg" alt="Award 3">
+            <h3 data-translate="about.achive3">81st International Co-operative Day</h3>
+            <p data-translate="about.achive31">Gold Award at the 81st International Co-operative Day in the year 2003</p>
+        </div>
+        </div>
+         <div class="card person-card">
+        <div class="achievement-item">
+            <img src="images/2002trophy.jpg" alt="Award 3">
+            <h3 data-translate="about.achive4">80th International Co-operative Day</h3>
+            <p data-translate="about.achive41">Silver Award at the 80th International Co-operative Day in the year 2002</p>
+        </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4 data-translate="footer.title">Capital Cooperative Bank</h4>
+                <p data-translate="footer.description">Regulated by the Department of Cooperative Development, Sri Lanka.</p>
+            </div>
+            <div>
+                <h4 data-translate="footer.navigate">Navigate</h4>
+                <ul>
+                    <li><a href="membership.html" data-translate="nav.membership">Membership</a></li>
+                    <li><a href="services.html" data-translate="nav.services">Services</a></li>
+                    <li><a href="branches.html" data-translate="nav.branches">Branches</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-translate="footer.support">Get Support</h4>
+                <ul>
+                    <li><a href="contact.html" data-translate="nav.contact">Contact Centre</a></li>
+                    <li><a href="faq.html" data-translate="nav.faq">FAQs</a></li>
+                    <li><a href="https://wa.me/94770001122" rel="noopener" target="_blank">WhatsApp 24/7</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-translate="footer.follow">Follow Us</h4>
+                <div style="display: flex; gap: 12px; margin-top: 8px;">
+                    <a href="https://www.facebook.com/share/1AMGWg2WFe/?mibextid=wwXIfr" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Facebook" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@bdcb514?si=ei93A_KSEimSxy-q" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="YouTube" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Instagram" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                    </a>
+                    <a href="https://lk.linkedin.com/" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="LinkedIn" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" style="display: inline-block; transition: opacity 0.2s;" title="Twitter" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small data-translate="footer.copyright">© 2025 Capital Cooperative Bank. All rights reserved.</small>
+            <small data-translate="footer.optimized">Optimized for performance, accessibility, and SEO.</small>
+        </div>
+    </footer>
+</body>
+</html>
